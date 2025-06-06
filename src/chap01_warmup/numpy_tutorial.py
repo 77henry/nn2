@@ -4,8 +4,6 @@
 
 # 1. 导入 numpy 库
 import numpy as np  # 将 numpy 库命名为 np
-
-
 import matplotlib
 import matplotlib.pyplot as plt  # 导入 matplotlib 库并将其命名为 plt
 # import 放一起代码美观
@@ -109,43 +107,40 @@ x = np.array([[1, 2], [3, 4]], dtype=np.float64)  # 创建一个二维的 NumPy 
 y = np.array([[5, 6], [7, 8]], dtype=np.float64)  # 创建另一个二维的 NumPy 数组 y，其元素为 [[5, 6], [7, 8]]，数据类型同样为 np.float64
 
 print("x+y\n", x + y)  # 使用 + 运算符对两个数组进行逐元素相加操作，并将结果打印出来
-
 print("np.add(x,y)\n", np.add(x, y))  # np.add 是 NumPy 库中用于数组相加的函数，同样会对两个数组进行逐元素相加
 
 # 14. 利用 13 题目中的 x,y 输出 x-y 和 np.subtract(x,y)
 print("第十四题：\n")
-
 print("x-y\n", x - y)
 print("np.subtract(x,y)\n", np.subtract(x, y))
 
+
 # 15. 利用 13 题目中的 x,y 输出 x*y , 和 np.multiply(x,y) 还有 np.dot(x,y), 比较差异。然后自己换一个不是方阵的试试。
 print("第十五题：\n")
-
 print("x*y\n", x * y)  # 对应位置相乘
 print("np.multiply(x, y)\n", np.multiply(x, y))  # 对应位置相乘
 print("np.dot(x,y)\n", np.dot(x, y))  # 标准的行乘列求和
 
+
 # 16. 利用 13 题目中的 x,y, 输出 x / y .(提示：使用函数 np.divide())
 print("第十六题：\n")
-
 print("x/y\n", x / y)  # 逐元素除法
 print("np.divide(x,y)\n", np.divide(x, y))  # 逐元素除法
 
 # 17. 利用 13 题目中的 x, 输出 x 的 开方。(提示： 使用函数 np.sqrt() )
 print("第十七题：\n")
-
 print("np.sqrt(x)\n", np.sqrt(x))
+
 
 # 18. 利用 13 题目中的 x,y , 执行 print(x.dot(y)) 和 print(np.dot(x,y))
 print("第十八题：\n")
-
 print("x.dot(y)\n", x.dot(y))  # 使用 dot 方法进行矩阵乘法
 print("np.dot(x,y)\n", np.dot(x, y))  # 使用 np.dot 函数进行矩阵乘法
 
+
 # 19. 利用 13 题目中的 x, 进行求和。提示：输出三种求和 (1)print(np.sum(x)):   (2)print(np.sum(x，axis =0 ));   (3)print(np.sum(x,axis = 1))
 print("第十九题：\n")
-
-print("print(np.sum(x)):", np.sum(x))  # 所有元素求和
+print("print(np.sum(x)):", np.sum(x))  # 对所有元素求和
 print("print(np.sum(x, axis=0))", np.sum(x, axis=0))  # 按列求和（列维度）
 print("print(np.sum(x, axis=1))", np.sum(x, axis=1))  # 按行求和（行维度）
 
@@ -158,7 +153,6 @@ print("print(np.mean(x,axis = 1))", np.mean(x, axis=1))  # 行均值
 
 # 21. 利用 13 题目中的 x，对 x 进行矩阵转置，然后输出转置后的结果，（提示： x.T 表示对 x 的转置）
 print("第二十一题：\n")
-
 print("x 转置后的结果:\n", x.T)
 
 # 22. 利用 13 题目中的 x, 求 e 的指数（提示： 函数 np.exp()）
@@ -217,5 +211,5 @@ plt.grid(True)
 # 显示图例
 plt.legend()
 
-# 显示图像
+# 显示图形
 plt.show()
