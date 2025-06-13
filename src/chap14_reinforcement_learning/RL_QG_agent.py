@@ -83,9 +83,14 @@ class RL_QG_agent:
         # 状态预处理：转换为适合网络输入的形状 [1, 8, 8, 3]
         state_input = np.array(state).reshape(1, 8, 8, 3).astype(np.float32)
         
-        # 前向传播获取所有位置的Q值
-        q_vals = self.sess.run(self.Q_values, feed_dict={self.input_states: state_input})
-        
+        # 使用TensorFlow会话执行前向传播计算
+        q_vals = self.sess.run(
+              self.Q_values,            # 指定要计算的TensorFlow节点（Q值输出）
+              feed_dict={
+              self.input_states: state_input  # 将当前状态输入到占位符节点
+              }
+        )
+
         # 提取合法位置的Q值
         legal_q = q_vals[0][enables]  # 形状与enables长度一致
         
