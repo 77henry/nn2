@@ -154,14 +154,22 @@ def compute_loss(logits, labels):# 使用 sparse_softmax_cross_entropy_with_logi
             logits=logits, labels=labels)
     return tf.reduce_mean(losses)# 对所有样本的损失求平均，得到一个标量值作为最终的 loss
 
+# 使用@tf.function装饰器将Python函数转换为TensorFlow图，加速训练
 @tf.function
 def train_one_step(model, optimizer, num1, num2, label_digits):
+    # 开启梯度记录环境
     with tf.GradientTape() as tape:
+        # 前向传播：模型根据输入num1和num2计算预测值
         logits = model(num1, num2)
+        # 计算预测结果logits与真实标签label_digits之间的损失
         loss = compute_loss(logits, label_digits)
-
+    
+    # 计算损失相对于模型可训练变量的梯度
     grads = tape.gradient(loss, model.trainable_variables)
+    # 使用优化器将梯度应用于模型参数（更新权重）
     optimizer.apply_gradients(zip(grads, model.trainable_variables))
+    
+    # 返回当前步骤的损失值（用于监控训练过程）
     return loss
 
 
